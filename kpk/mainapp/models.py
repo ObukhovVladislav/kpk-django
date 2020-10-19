@@ -8,6 +8,10 @@ class SubjectCategory(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Направление подготовки'
+        verbose_name_plural = 'Направления подготовки'
+
 
 class Course(models.Model):
     category = models.ForeignKey(SubjectCategory,
@@ -17,3 +21,5 @@ class Course(models.Model):
     hours = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
